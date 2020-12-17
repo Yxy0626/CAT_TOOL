@@ -7,6 +7,7 @@ if($user_type > 1)
 	header("Location: login.php");
 }
 ?>
+
 <?php
 
 include "../share/head.php";
@@ -18,6 +19,62 @@ include "../share/head.php";
 include "../share/navbar.php";
 
 ?>
+
+<html>
+<head>
+<script type="text/javascript">
+function showteam()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url="../action/getteam.php";
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+
+function showteammember()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url="../action/teamshow-transmanagement.php";
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("Hint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+
+</script>
+</head>
+<body onload="showteam(); showteammember();">
+
  <!-- Start Content-->
                 <div class="container-fluid">
 
@@ -27,8 +84,9 @@ include "../share/navbar.php";
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item active">Widgets</li>
+                                        <li class="breadcrumb-item"><a href="project_managePage.php"><i class="feather icon-home"></i></a></li>
+
+                                        <li class="breadcrumb-item active">译员管理</li>
                                     </ol>
                                 </div>
                             </div>
@@ -70,154 +128,26 @@ include "../share/navbar.php";
                                     </div>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
+<form action="../action/addtranslator.php" method="POST">
                                             <table class="table">
                                                 <thead>
+
                                                     <tr>
-                                                        <th>Name</th>
-                                                        <th>Date</th>
-                                                        <th>ProjectID</th>
-                                                        <th>Action</th>
+                                                        <th>人员</th>
+                                                        <th>日期</th>
+                                                        <th>项目 ID</th>
+                                                        <th>操作</th>
                                                     </tr>
+
                                                 </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <div class="mr-3">
-                                                                    <div class="ui-demo-avatar text-white bg-primary">
-                                                                        AL
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    Alta Lucas
-                                                                    <div class="text-muted">Connecticut</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            31 Aug 2018
-                                                            <div class="text-muted">9:30 am</div>
-                                                        </td>
-                                                        <td>
-                                                            6770 Verner Burgs
-                                                            <div class="text-muted">View on map</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="dropdown dropleft">
-                                                                <button class="btn p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu" data-x-placement="left-start">
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-grease-pencil mr-2"></i>Edit</a>
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-delete mr-2"></i>Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <div class="mr-3">
-                                                                    <div class="ui-demo-avatar text-white bg-success">
-                                                                        TS
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    Teresa Shaw
-                                                                    <div class="text-muted">Florida</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            13 May 2018
-                                                            <div class="text-muted">10:30 am</div>
-                                                        </td>
-                                                        <td>
-                                                            1300 Gideon Divide Apt. 400
-                                                            <div class="text-muted">Start session</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="dropdown dropleft">
-                                                                <button class="btn p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu" data-x-placement="left-start">
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-grease-pencil mr-2"></i>Edit</a>
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-delete mr-2"></i>Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <div class="mr-3">
-                                                                    <div class="ui-demo-avatar text-white bg-danger">
-                                                                        RU
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    Rosa Underwood
-                                                                    <div class="text-muted">North Dakota</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            02 Jan 2018
-                                                            <div class="text-muted">11:00 am</div>
-                                                        </td>
-                                                        <td>
-                                                            9576 Rempel Extension
-                                                            <div class="text-muted">End session</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="dropdown dropleft">
-                                                                <button class="btn p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu" data-x-placement="left-start">
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-grease-pencil mr-2"></i>Edit</a>
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-delete mr-2"></i>Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="d-flex">
-                                                                <div class="mr-3">
-                                                                    <div class="ui-demo-avatar text-white bg-warning">
-                                                                        WA
-                                                                    </div>
-                                                                </div>
-                                                                <div>
-                                                                    Warren Arnold
-                                                                    <div class="text-muted">North Dakota</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            02 Jan 2018
-                                                            <div class="text-muted">11:00 am</div>
-                                                        </td>
-                                                        <td>
-                                                            9576 Rempel Extension
-                                                            <div class="text-muted">End session</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="dropdown dropleft">
-                                                                <button class="btn p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                    <i class="mdi mdi-dots-horizontal card-menu-btn"></i>
-                                                                </button>
-                                                                <div class="dropdown-menu" data-x-placement="left-start">
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-grease-pencil mr-2"></i>Edit</a>
-                                                                    <a class="dropdown-item" href="#!"><i class="mdi mdi-delete mr-2"></i>Delete</a>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                <tbody id="txtHint">
                                                 </tbody>
+<tr align="right"><th colspan="6">
+                                            <select class="select2 form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="Choose ..." id="Hint" name="teammember[]">           
+                                            </select>
+					<button type="summit" class="btn btn-sm btn-secondary">添加译员</button></th></tr>
                                             </table>
+</form>
                                         </div>
                                     </div>
                                 </div>
