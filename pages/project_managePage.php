@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include "../share/lock.php";
 error_reporting(E_ALL || ~E_NOTICE);
 
@@ -19,6 +19,35 @@ include "../share/navbar.php";
 
 ?>
 	
+<html>
+<head>
+<script type="text/javascript">
+function showpj()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url="../action/getpj.php";
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body onload="showpj();">
        
 
                 <!-- Start Content-->
@@ -30,8 +59,7 @@ include "../share/navbar.php";
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item active">Widgets</li>
+                                        <li class="breadcrumb-item"><i class="feather icon-home"></i> 首页</li>
                                     </ol>
                                 </div>
                                
@@ -82,35 +110,20 @@ include "../share/navbar.php";
                                                         <th>Project ID</th>
                                                         <th>项目经理</th>
                                                         <th>建项时间</th>
-                                                        <th>成员人数</th>
                                                         <th>结项时间</th>
                                                         <th>项目处理</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="txtHint">
                                                     <tr>
                                                         <td>#INV-<span>348</span></td>
                                                         <td>Resturant</td>
-                                                        <td>07-12-2019</td>
-                                                        <td class="font-weight-semibold fs-16 num-font">$89</td>
                                                         <td>17-12-2019</td>
                                                         <td>
                                                             <a href="translation_managePage.php" target = "_blank" class="btn btn-icon btn-primary mr-1" data-toggle="tooltip" title="编辑（进入翻译任务页面）"><i class="feather icon-edit-2"></i></a>															
                                                             <a href="#!"  class="btn btn-icon btn-danger mr-1" data-toggle="tooltip" title="结项（进入确认结项页面）"><i class="feather icon-trash-2"></i></a>
                                                             <a href="memberManagement.php" target="_blank" class="btn btn-icon btn-success mr-1" data-toggle="tooltip" title="译员管理"><i class="feather icon-users"></i></a>
 														</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>#INV-<span>186</span></td>
-                                                        <td>Rela Estate</td>
-                                                        <td>02-12-2019</td>
-                                                        <td class="font-weight-semibold fs-16 num-font">$14,276</td>
-                                                        <td>14-12-2019</td>
-                                                        <td>
-                                                            <a href="translation_managePage.php" target="_blank" class="btn btn-icon btn-primary mr-1" data-toggle="tooltip" title="编辑（进入翻译任务页面）"><i class="feather icon-edit-2"></i></a>
-                                                            <a href="#!" class="btn btn-icon btn-danger mr-1" data-toggle="tooltip" title="结项（进入确认结项页面）"><i class="feather icon-trash-2"></i></a>
-															<a href="memberManagement.php" target="_blank" class="btn btn-icon btn-success mr-1" data-toggle="tooltip" title="译员管理"><i class="feather icon-users"></i></a>
-                                                        </td>
                                                     </tr>
                                                    
                                                 </tbody>
