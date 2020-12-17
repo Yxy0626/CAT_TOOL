@@ -19,6 +19,36 @@ include "../share/navbar.php";
 
 ?>
 
+<html>
+<head>
+<script type="text/javascript">
+function showtm()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url="../action/getTM.php";
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body onload="showtm();">
+
 
                 <!-- Start Content-->
                 <div class="container-fluid">
@@ -29,9 +59,9 @@ include "../share/navbar.php";
                             <div class="page-title-box">
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);"><i class="feather icon-home"></i></a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">翻译记忆库</a></li>
-                                        <li class="breadcrumb-item active">XXX翻译记忆库</li>
+                                        <li class="breadcrumb-item"><a href="project_managePage.php"><i class="feather icon-home"></i></a></li>
+
+                                        <li class="breadcrumb-item active">翻译记忆库</li>
                                     </ol>
                                 </div>
                                 <h4 class="page-title">翻译记忆库</h4>
@@ -44,132 +74,23 @@ include "../share/navbar.php";
                         <div class="col-xl-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>XXX翻译记忆库</h5>
+                                    <h5>翻译记忆库</h5>
                                 </div>
                                 <div class="card-body table-border-style">
                                     <div class="table-responsive">
                                         <table id="basic-datatable" class="table dt-responsive nowrap" width="100%">
                                             <thead>
+					<tr align="right"><th colspan="6"><a href="UPLOAD-TB.php"><button type="button" class="btn btn-sm btn-secondary">上传翻译记忆文档</button></a></th></tr>
                                                 <tr>
-                                                    <th width="15%">编号</th>
                                                     <th width="80px">原文</th>
                                                     <th width="80px">译文</th>
-                                                    <th width="15%">作者</th>
-                                                    <th width="15%">编辑</th>
-                                                    <th width="15%">删除</th>
+
+                                                    <th width="50px">删除</th>
 
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道。</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道不知道。</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
- <tr>
-                                                    <th scope="row">1</th>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">Mark</td>
-                                                    <td style="word-break:break-all; word-wrap:break-word;">OtttOttOo</td>
-                                                    <td>@mdo</td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">编辑</button></td>
-                                                    <td><button type="button" class="btn btn-sm btn-secondary">删除</button></td>
-
-                                                </tr>
-
+                                            <tbody id="txtHint">
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -196,7 +117,8 @@ include "../share/foot.php";
     </div>
     <!-- END wrapper -->
 
-
+</body>
+</html>
 
 <?php
 
