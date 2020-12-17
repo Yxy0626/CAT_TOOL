@@ -1,11 +1,9 @@
-
+ 
 <body>
-
-
 	<div class="left-side-menu">
             <div class="slimscroll-menu">
         <!--logo-->
-                <a href="../pages/project_managePage.php" class="logo">
+                <a href="" class="logo">
                     <span class="logo-lg">
                         <h2>LoCAT</h2>
                     </span>
@@ -22,10 +20,18 @@
                 </div>
 		<ul class="metismenu side-nav">
 		<li class="menu-item">
-		<a href="../pages/project_managePage.php" class="menu-link">
-                            <i class="feather icon-home"></i>
-                            <span> 我的项目 </span>
-                        </a>
+		<?php
+			
+			if($user_type ==1)
+				{
+					echo '<a href="../pages/project_managePage.php" class="menu-link"><i class="feather icon-home"></i><span>我的项目</span></a>';
+					
+				}
+			else
+			{
+				echo'<a href="../pages/translation_translatorPage.php" class="menu-link"><i class="feather icon-home"></i><span>我的项目</span></a>';
+			}
+			?>
 						</li>
 		<li class="menu-item">
                         <a href="../pages/TM.php" class="menu-link">
