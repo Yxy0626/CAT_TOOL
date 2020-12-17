@@ -1,4 +1,12 @@
+<?php
+include "../share/lock.php";
+error_reporting(E_ALL || ~E_NOTICE);
 
+if($user_type > 1)
+{
+	header("Location: login.php");
+}
+?>
 <?php
 
 include "../share/head.php";
@@ -11,6 +19,36 @@ error_reporting(E_ALL || ~E_NOTICE);
 include "../share/navbar.php";
 
 ?>
+
+<html>
+<head>
+<script type="text/javascript">
+function showterm()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+var url="../action/teamshow.php";
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body onload="showterm();">
 
 
                 <!-- Start Content-->
@@ -35,25 +73,39 @@ include "../share/navbar.php";
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-								
+								<form action="../action/projectupload.php" method="POST">
 								<div class="col-md-4 mb-3">
 						<label for="validationTooltip01">项目ID</label>
-						<input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="请填入“字母-日期”的格式，如:A20201127" required placeholder="x-AAAA-BB-CC" required>
-						<br/>
-						<label for="validationTooltip02">项目负责人</label>
-					    <input type="text" class="form-control" id="validationTooltip02" placeholder="项目负责人" value="请输入姓名" required>
+						<input type="text" class="form-control" id="validationTooltip01" name="projectid" value="请填入“字母-日期”的格式，如:A20201127" required placeholder="A-YEAR-MONTH-DAY: A20200422" required></br>
+
+<label for="validationTooltip01">项目经理</label>
+
+						<input type="text" name="user" class="form-control" value=<?php 
+         echo $login_session; 
+         ?> readonly="readonly"/></br>
+<label for="validationTooltip01">结项时间</label>
+						<input type="text" class="form-control" id="validationTooltip01" name="projectdate" value="时间格式如: 2020-04-22" required placeholder="2020-04-22" required>
+				               
 				               </div>
-							   <!--此处想创建一个邀请译员加入项目的框，输入要邀请译员的邮箱，点击按钮即可邀请并清空，邀请下一位译员-->
-					    <label for="validationTooltipUsername">这是一个测试框 需要后期替换</label>
-			            <div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-						</div>
-							<input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-						<div class="invalid-tooltip">
-							Please choose a unique and valid username.
-						</div>
-						</div>
+
+
+							  <!--此处想创建一个邀请译员加入项目的框，输入要邀请译员的邮箱，点击按钮即可邀请并清空，邀请下一位译员--> 
+<div class="col-md-6">
+                                            <h6 class="mb-1 mt-3">人员选择</h6>
+                                            <select class="select2 form-control select2-multiple" data-toggle="select2" multiple="multiple" data-placeholder="Choose ..." id="txtHint" name="teammember[]">           
+                                            </select>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+<button class="btn  btn-primary" type="submit">新建</button>
+                            </div>
+                        </div>
+                    </div>
+ 
+</form>
+			        
 						<br/>
 							   
 							   
@@ -78,7 +130,7 @@ include "../share/navbar.php";
 							 
                                </form>
 							   <br/>
-							   <a href="#!" ><button class="btn  btn-primary" type="submit">新建</button></a>
+							 
                                </div>
                             </div>
                         </div>
