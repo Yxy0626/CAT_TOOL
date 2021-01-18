@@ -22,55 +22,55 @@ IDE：Notepad++
 
 ### 数据库ER图
 
-![er](C:\Users\oysd\Desktop\数据库2\final\er.jpg)
+![er](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/er.jpg)
 
 ### 数据库设计
 
 cat_database2数据库下有7个表分别为file（文件表）、project（项目表）、terms（术语表）、translation（译文表）、translation_memory（翻译记忆表）、user（用户表）、user_project（用户项目表）
 
-![tablelist](C:\Users\oysd\Desktop\数据库2\final\tablelist.png)
+![tablelist](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/tablelist.png)
 
 **file（文件表）**
 
 其中有四个元素，id为主键并且自增。用来存储文件名与项目名。
 
-![tablelist](C:\Users\oysd\Desktop\数据库2\final\file.png)
+![tablelist](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/file.png)
 
 **project（项目表）**
 
 其中有四个元素，project_id为主键。存储项目、项目经理、项目开始与结束时间的信息。
 
-![project](C:\Users\oysd\Desktop\数据库2\final\project.png)
+![project](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/project.png)
 
 **terms（术语表）**
 
 其中有5个元素，id为主键且自增。ST为源语言，TT为目标语言，存储术语信息。
 
-![term](C:\Users\oysd\Desktop\数据库2\final\term.png)
+![term](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/term.png)
 
 **translation（译文表）**
 
 其中有6个元素，id为主键且自增。ST为源语言，TT为目标语言，存储译文信息。
 
-![translation](C:\Users\oysd\Desktop\数据库2\final\translation.png)
+![translation](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/translation.png)
 
 **translation_memory（翻译记忆表）**
 
 其中有4个元素，id为主键且自增。ST为源语言，TT为目标语言，存储翻译记忆信息。
 
-![translation_memory](C:\Users\oysd\Desktop\数据库2\final\translation_memory.png)
+![translation_memory](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/translation_memory.png)
 
 **user（用户表）**
 
 其中有四个元素，用来储存注册用户信息，Email为主键，以此避免重复注册。存储姓名，密码，authority值为1则是项目经理，0为普通译员。
 
-![user](C:\Users\oysd\Desktop\数据库2\final\user.png)
+![user](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/user.png)
 
 **user_project（用户项目表）**
 
 其中有3个元素，用来存储用户是否加入项目的信息，Email为主键。
 
-![user_project](C:\Users\oysd\Desktop\数据库2\final\user_project.png)
+![user_project](https://github.com/Yxy0626/CAT_TOOL/blob/main/img/user_project.png)
 
 ## 人员分工
 
